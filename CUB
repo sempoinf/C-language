@@ -1,13 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-/*int main() {
+/*void main() {
 	printf("Hello world\n");
 }
 */
 
 /* print Fahrenheit-celsius table for f = 0, 20, ..., 300 */
-/*int main() {
+/*void main() {
 	int lower=0, upper=300, step=20;
 	float fahr, celsius;
 	fahr = lower;
@@ -17,7 +17,7 @@
 		fahr = fahr + step;
 	}
 }*/
-/*int main() {
+/*void main() {
 	int lower = 0, upper = 300, step = 20;
 	float fahr, celsius;
 	celsius = lower;
@@ -29,37 +29,65 @@
 		}
 	}*/
 
-/*int main() {
+/*void main() {
 	for (int fahr =300; fahr >= 0; fahr -= 20) {
 		printf("%4d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32.0));
 	}
 }*/
 
 //выводит вводимое 
-/*int main() {
+/*void main() {
 	int c;
 		while ((c = getchar()) != EOF) {
 		putchar(c);
-		c = getchar();
+		
 	}
 
 }*/
 
-/*int main() {//count simv
-	int count = 0;
-	while (getchar() != EOF) count++;
-		printf("%d\n",count);
-
+// count characters in input 
+/*void main() {
+	double count;
+	for ( count = 0; getchar() != EOF; ++count);
+	printf("%.0f\n", count);//%.0f подавляеи печать несуществеющей дробной части
 }*/
 
-/* int main() /* count lines in input
+// count lines in input
+/*void main()
 {
 	int c, nl;
 	nl = 0;
-	while ((c = getchar()) != EOF)
-		if (c == '\n')
+	while ((c = getchar()) != EOF)//"\n" - это символьная строка, которая содержит только один символ
+		if (c == '\n')//'\n' - отдельный символ, который в выражениях эквивалентен одиночному целому 
 			++nl;
 	printf("%d\n", nl);
+}*/
+
+/*void main() {
+	int c,space = 0, tab = 0, line = 0;;
+	while ((c=getchar()) != EOF) {
+		if (c == '\t') ++tab;
+		if (c == '\n') ++line;
+		if (c == ' ') ++space;
+		}
+	printf("%d,%d,%d\n", tab, line, space);
+	//printf("%d\n", line);
+	//printf("%d\n", space);
+}*/
+
+//ввод на вывод, заменяя при этом каждую последовательность из одного или более пробелов на один пробел
+/*void main() {
+	int c,space=0;
+		while ((c = getchar()) != EOF) {
+			while (c == ' ') { 
+				++space;
+				c = getchar();}
+			if (space > 1) {
+				printf(" "); 
+				space = 0;
+			}
+		putchar(c);
+	}
 }*/
 
 /*int main() {
