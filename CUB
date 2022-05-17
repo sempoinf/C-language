@@ -63,6 +63,7 @@
 	printf("%d\n", nl);
 }*/
 
+
 /*void main() {
 	int c,space = 0, tab = 0, line = 0;;
 	while ((c=getchar()) != EOF) {
@@ -74,6 +75,7 @@
 	//printf("%d\n", line);
 	//printf("%d\n", space);
 }*/
+
 
 //ввод на вывод, заменяя при этом каждую последовательность из одного или более пробелов на один пробел
 /*void main() {
@@ -90,11 +92,57 @@
 	}
 }*/
 
-/*int main() {
-	int count,c, stroka = 0;
-	for (count = 0; (c = getchar()) != EOF; count++) {
-		if (c == '\n') stroka++;
+
+//#define YES 1
+//#define NO 0
+/* count lines, words, chars in input */
+/*void main() 
+{
+	int c, line, word, inword, simb;
+	inword = NO;
+	line = word = simb = 0;
+	while ((c = getchar()) != EOF) {
+		++simb;
+		if (c == '\n')
+			++line;
+		if (c == ' ' || c == '\n' || c == '\t')
+			inword = NO;
+		else if (inword == NO) {
+			inword = YES;
+			++word;
+		}
 	}
-	printf("%d\n", count);
-	printf("%d\n", stroka);
+	printf("%d %d %d\n", line, word, simb);
+}*/
+
+//печатать слова из файла ввода, причем по одному на строку.
+/*
+void main() {
+	int c;
+	while ((c = getchar()) != EOF) {
+		if (c == ' ' || c == '\t') {
+			c = getchar();
+			printf("\n");
+		}
+		putchar(c);
+	}
+}
+*/
+
+//1-11
+/*#define YES 1
+#define NO 0
+void main() {
+	int c, word,inword;
+	word = 0;
+	inword = NO;
+	while ((c = getchar()) != EOF) {
+		if (c == ' ' || c == '\n' || c == '\t')
+			inword = NO;
+		else if (inword == NO) {
+			inword = YES;
+			++word;
+		}
+	}
+	printf("% d\n", word);
 }*/
