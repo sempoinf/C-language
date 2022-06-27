@@ -214,3 +214,112 @@ void main() {
 	while ((c = getchar()) != EOF)
 	putchar(ower(c));
 }
+
+
+HERE SHOULD DO IT AGAIN !!!!!!!!!!
+/*#define MAXLINE 10000 // maximum input line size 
+int getline(char s[], int lim) // get line into s, return length 
+{
+	int c, i;
+	for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+		s[i] = c;
+	if (c == '\n') {
+		s[i] = c;
+		++i;
+	}
+	s[i] = '\0';
+	return(i);
+}
+int copy(char s1[],char s2[]) //copy s1 to s2; assume s2 big enough 
+{
+	int i;
+	i = 0;
+	while ((s2[i] = s1[i]) != '\0')
+		++i;
+	return(i);
+}
+
+void main() // find longest line 
+{
+	int len; // current line length 
+	int max; // maximum length seen so far 
+	char line[MAXLINE]; // current input line 
+	char save[MAXLINE]; // longest line, saved 
+	max = 0;
+	while ((len = getline(line, MAXLINE)) > 0)
+		if (len > max) {
+			max = len;
+			copy(line, save);
+		}
+	if (max > 0) // there was a line 
+		printf("%s", save);
+}*/
+
+
+//Creat massive that save all lines that have 80 simboles
+/*#define MAXLINE 1000
+#define MAX 1000000
+int getline(char s[], int lim)
+{
+	int c, i;
+	for(i=0; i<lim-1 && (c=getchar())!=EOF && c != '\n'; ++i)
+		s[i] = c;
+	if (c == '\n') {
+		s[i] = c;
+		++i;
+	}
+	s[i] = '\0';
+	return(i);
+}
+int copy(char to[], char from[], int flag) 
+{
+	int i;
+	i = 0;
+	while ((to[i + flag] = from[i]) != '\0')
+		++i;
+	return(i);
+}
+
+void main() // find longest line 
+{
+	int len; // current line length 
+	int max; // maximum length seen so far 
+	char line[MAXLINE]; // current input line 
+	char longest[MAX]; // massive, that save all lines >80 simb
+	max = 0;
+	while ((len = getline(line, MAXLINE)) > 0)
+		if ((len -1)>79) {
+			copy(longest, line, max);
+			max += len;
+		}
+	if (max > 79) // there was a line 
+		printf("\nLines longest 80 simbls:\n\n%s\nProgramm done", longest);
+	else
+		printf("\nLines shorters 80 simbls.\nProgramm done");
+
+	getchar();
+}*/
+
+//create program that delete finally spaces and tabs
+/*#define MAXLINE 1000 // максимальный размер вводимой строки
+
+//getline читает строку в s, возвращает длину
+int getline(char s[], int max)
+{
+	int i, c, k;
+	for (i = 0; i < MAXLINE - 1 && (c = getchar()) != EOF && c != '\n'; i++)
+		s[i] = c;
+	for (k = i - 1; s[k] == ' ' || s[k] == '\ t'; k--) // Начиная с последнего символа массива и повторяя цикл вперед, он соответствует пробелу или системе Символ таблицы, продолжайте цикл до тех пор, пока условие не будет выполнено, затем выпрыгните и добавьте терминатор.
+		s[k] = '\0';
+	return k;
+}
+int main()
+{
+	int len;
+	char line[MAXLINE];
+	while ((len = getline(line, MAXLINE)) > 0)
+		printf("%s\n", line);
+	system("pause");
+	return 0;
+}
+*/
