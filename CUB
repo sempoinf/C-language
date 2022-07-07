@@ -323,3 +323,152 @@ int main()
 	return 0;
 }
 */
+/*
+Напишите функцию reverse (s), размещающую символы
+в строке s в обратном порядке.
+Примените ее при написании программы, которая каждую
+вводимую строку располагает в обратном порядке.
+*/
+/*#define MAXLINE 1000
+
+int getline(char string[], int length);
+void reverse(char string[]);
+
+int main(void) {
+	int len;
+	char line[MAXLINE];
+	while ((len = getline(line, MAXLINE)) > 0) {
+		reverse(line);
+		printf("%s\n", line);
+	}
+	return 0;
+}
+
+int getline(char s[], int len) {
+	int c, i;
+	for (i = 0; i < len - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+		s[i] = c;
+	if (c == '\n') {
+		s[i] = c;
+		++i;
+	}
+	s[i] = '\0';
+	return i;
+}
+
+void reverse(char string[]) {
+	int i, j;
+	char temp;
+	i = j = 0;
+	while (string[j] != '\0' && string[j] != '\n')
+		++j;
+	for (i = 0, --j; i < j; ++i, --j) {
+		temp = string[i];
+		string[i] = string[j];
+		string[j] = temp;
+	}
+}*/
+
+//Vneshnie peremen
+/*
+#define MAXLINE 1000 // max. input line size
+char line[MAXLINE]; // input line 
+char save[MAXLINE];// longest line saved here 
+int max;/*length of longest line seen so far 
+
+int getline();
+int copy();
+
+void main() /*find longest line; specialized version 
+{
+	int len;
+	extern int max;
+	extern char save[];
+	max = 0;
+	while ((len = getline()) > 0)
+		if (len > max) {
+			max = len;
+			copy();
+		}
+	if (max > 0) /* there was a line 
+		printf("%s", save);
+}
+int getline() /* specialized version 
+{
+	int c, i;
+	extern char line[];
+	if ((c = getchar()) != EOF && c != '\n') {
+		for (i = 0; i < MAXLINE - 1; ++i) {
+			line[i] = c;
+			++i;
+		}
+	}
+line[i] = '\0';
+return(i);
+}
+int copy() /* specialized version 
+{
+	int i;
+	extern char line[], save[];
+	i = 0;
+	while ((save[i] = line[i]) != '\0')
+		++i;
+	return i;
+}
+
+*/
+
+//1-19 detab, которая заменяет табуляции во вводе на нужное число пробелов
+
+#define MAXLINE 1000
+int getline(char line[], int lenght);
+int detab(char string[]);
+
+void main(void) {
+	char line[MAXLINE];
+	int len;
+	while ((len = getline(line, MAXLINE)) > 0) {
+		detab(line);
+		printf("%s\n", line);
+	}
+}
+
+/*
+int getline(char string[], int len) {
+	int i, c;
+	if ((c = getchar()) != EOF && c != '\n') {
+		for (i = 0; i < MAXLINE-1; ++i) string[i] = c;
+	}
+	if (c == '\n') {
+		string[i] = c;
+		++i;
+	}
+	string[i] = '\0';
+	return (i);
+}
+*/
+int getline(char s[], int lim)
+{
+	int c, i;
+	for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+		s[i] = c;
+	if (c == '\n') {
+		s[i] = c;
+		++i;
+	}
+	if (c == '\t') {
+		s[i] = '\n';
+	}
+	s[i] = '\0';
+	return(i);
+}
+
+
+int detab(char line[]) {
+	int i;
+	for (i = 0; i < MAXLINE-1; ++i) {
+		if (line[i] == '\t')
+			line[i] == ' ';
+	}
+	return i;
+}
